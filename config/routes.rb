@@ -15,5 +15,11 @@ Rails.application.routes.draw do
 #########################
 # Form Routes
 get("/insert_photo", {:controller => "photos", :action => "create"})
+get("/update_photo/:modify_id", {:controller => "photos", :action => "update"})
+
+get("/insert_user", {:controller => "users", :action => "create"})
+get("/update_user/:modify_id", {:controller => "users", :action => "update"})
+
+get("/insert_comment", {:controller => "comments", :action => "create"})
 
 end
