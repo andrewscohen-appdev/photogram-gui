@@ -1,21 +1,21 @@
-<h1>debbi</h1>
+<h1><%= @the_user.username %></h1>
 
 <dl>
   <dt>ID</dt>
-  <dd>106</dd>
+  <dd><%= @the_user.id %></dd>
 
   <dt>Edit user</dt>
   <dd>
-    <form action="/update_user/106" >
+    <form action="/update_user/<%= @the_user.id %>" >
       <label for="browser_username">Username</label>
-      <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." value="debbi">
+      <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." value="<%= @the_user.username %>">
 
       <button>Update user</button>
     </form>
   </dd>
 </dl>
 
-<h2>Own photos (10)</h2>
+<h2>Own photos (<%= @the_user.own_photos.size %>)</h2>
 
 <table border="1">
   <tr>
@@ -38,26 +38,28 @@
     <th></th>
   </tr>
 
-  <tr>
-    <td>
-      <img src="https://robohash.org/corruptiveniamsit.png?size=300x300&amp;set=set1">
-    </td>
+  <% @the_user.own_photos.each do |a_photo| %>
+    <tr>
+      <td>
+        <img src="<%= a_photo.image%>">
+      </td>
 
-    <td>
-      debbi
-    </td>
+      <td>
+        <%= a_photo.poster.username %>
+      </td>
 
-    <td>
-      All dwarfs are bastards in their father&#39;s eyes
-    </td>
+      <td>
+        <%= a_photo.caption %>
+      </td>
 
-    <td>
-      2017-02-09 22:10:29 UTC
-    </td>
-    
-    <td>
-      <a href="/photos/836">
-        Show details
-      </a>
-    </td>
-  </tr>
+      <td>
+        <%= a_photo.created_at %>
+      </td>
+      
+      <td>
+        <a href="/photos/<%= a_photo.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>

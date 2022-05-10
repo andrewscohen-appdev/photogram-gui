@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 # User Routes
   get("/", { :controller => "users", :action => "index" })
   get("/users", { :controller => "users", :action => "index" })
-  get("/users/:path_id", { :controller => "users", :action => "show" })
+  get("/users/:path_username", { :controller => "users", :action => "show" })
 
 #########################
 # Photo Routes
   get("/photos", { :controller => "photos", :action => "index" })
-  get("/photos/:path_id", { :controller => "photos", :action => "show" })
+  get("/photos/:path_photo", { :controller => "photos", :action => "show" })
+  get("/delete_photo/:toast_photo", { :controller => "photos", :action => "destroy" })
 
 end
