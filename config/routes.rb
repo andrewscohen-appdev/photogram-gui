@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   get("/photos/:path_photo", { :controller => "photos", :action => "show" })
   get("/delete_photo/:toast_photo", { :controller => "photos", :action => "destroy" })
 
+#########################
+# Form Routes
+get("/insert_photo", {:controller => "photos", :action => "create"})
+
 end
